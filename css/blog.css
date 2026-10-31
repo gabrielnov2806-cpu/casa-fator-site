@@ -1,0 +1,133 @@
+/* Fator Blog: leitura em fundo branco, topo e rodapé pretos */
+.blog { background: var(--branco); color: var(--preto); }
+
+.blog-topo {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: .875rem var(--margem);
+  background: var(--preto);
+  color: var(--branco);
+}
+
+.blog-marca { display: block; width: clamp(8.5rem, 14vw, 11rem); }
+
+.blog-logo { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
+
+.blog-nav { display: flex; gap: 1.5rem; margin-left: auto; }
+
+.blog-nav a { color: inherit; text-decoration: none; font-size: .9375rem; }
+
+.blog-nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+
+.blog-pedir { padding: .625rem 1.125rem; font-size: .8125rem; white-space: nowrap; }
+
+.blog-capa { max-width: 76rem; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) var(--margem); }
+
+.blog-capa h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 6rem);
+  line-height: 1;
+  font-weight: 300;
+}
+
+.blog-intro { max-width: 44rem; margin: 1rem 0 clamp(2rem, 5vw, 3.5rem); font-size: 1.1875rem; line-height: 1.5; color: var(--grafite); }
+
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: 2.5rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cartao a { display: block; color: inherit; text-decoration: none; }
+
+.cartao img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: .75rem; }
+
+.cartao-categoria { display: block; margin-top: 1rem; color: var(--grafite); font-size: .875rem; }
+
+.cartao h2 { margin: .25rem 0 .5rem; font-size: 1.3125rem; line-height: 1.2; font-weight: 500; }
+
+.cartao a:hover h2 { text-decoration: underline; text-underline-offset: .2em; }
+
+.cartao p { margin: 0; color: var(--grafite); font-size: .9375rem; line-height: 1.5; }
+
+.artigo { max-width: 46rem; margin: 0 auto; padding: 1.5rem var(--margem) clamp(3rem, 6vw, 5rem); box-sizing: content-box; }
+
+.trilha { font-size: .875rem; color: var(--grafite); overflow-wrap: anywhere; }
+
+.trilha a { color: inherit; }
+
+.artigo h1 {
+  margin: 1.5rem 0 .75rem;
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  line-height: 1.08;
+  font-weight: 300;
+}
+
+.artigo-dados { margin: 0; color: var(--grafite); font-size: .9375rem; }
+
+.artigo-resumo { margin: 1.25rem 0 0; font-size: 1.25rem; line-height: 1.45; }
+
+.artigo-capa { margin: 2rem 0; }
+
+.artigo-capa img { display: block; width: 100%; height: auto; max-height: 34rem; object-fit: cover; border-radius: .75rem; }
+
+.artigo-capa figcaption { margin-top: .5rem; color: var(--grafite); font-size: .875rem; }
+
+.artigo-texto { font-size: 1.0625rem; line-height: 1.65; }
+
+.artigo-texto h2 { margin: 2.5rem 0 .5rem; font-size: 1.625rem; line-height: 1.2; font-weight: 500; }
+
+.artigo-texto h3 { margin: 1.5rem 0 .25rem; font-size: 1.125rem; line-height: 1.3; font-weight: 600; }
+
+.artigo-texto p { margin: 0 0 1rem; }
+
+.artigo-texto ul,
+.artigo-texto ol { margin: 0 0 1rem; padding-left: 1.375rem; }
+
+.artigo-texto li { margin-bottom: .375rem; }
+
+.artigo-texto a,
+.artigo-relacionados a,
+.blog-rodape a { color: inherit; text-underline-offset: .2em; }
+
+.artigo-chamada {
+  margin-top: 3rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: .75rem;
+  background: var(--preto);
+  color: var(--branco);
+}
+
+.artigo-chamada h2 { margin: 0 0 .5rem; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; font-weight: 300; }
+
+.artigo-chamada p { margin: 0; line-height: 1.5; color: var(--cinza-claro); }
+
+.artigo-chamada .artigo-chamada-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.25rem; }
+
+.blog-link-claro { color: var(--branco); font-size: .9375rem; text-underline-offset: .2em; }
+
+.artigo-relacionados { margin-top: 3rem; }
+
+.artigo-relacionados h2 { margin: 0 0 .75rem; font-size: 1.25rem; font-weight: 600; }
+
+.artigo-relacionados ul { margin: 0; padding: 0; list-style: none; }
+
+.artigo-relacionados li { padding: .75rem 0; border-top: 1px solid var(--cinza-claro); }
+
+.blog-rodape { padding: 2.5rem var(--margem); background: var(--preto); color: var(--cinza-claro); font-size: .9375rem; line-height: 1.5; }
+
+.blog-rodape p { margin: 0 0 .5rem; max-width: 60rem; }
+
+.blog-rodape strong { color: var(--branco); }
+
+@media (max-width: 44rem) {
+  .blog-nav { display: none; }
+
+  .blog-pedir { margin-left: auto; }
+
+  .artigo { box-sizing: border-box; }
+}

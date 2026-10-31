@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peça seu orçamento | Casa Fator</title>
+  <meta name="description" content="Conte sobre o seu projeto e receba o orçamento da Casa Fator por e-mail em 3 a 5 dias úteis.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/orcamento.css">
+</head>
+<body>
+  <div id="funil-raiz">
+    <noscript>
+      <p class="funil-sem-js">Para pedir seu orçamento por aqui, ative o JavaScript do navegador, ou <a href="https://wa.me/5521971443609">fale conosco pelo WhatsApp</a>.</p>
+    </noscript>
+  </div>
+  <script src="js/orcamento-config.js"></script>
+  <script src="js/orcamento-logica.js"></script>
+  <script src="js/orcamento-conteudo.js"></script>
+  <script src="js/orcamento.js"></script>
+  <script>
+    window.iniciarFunil(document.getElementById("funil-raiz"), { busca: location.search });
+  </script>
+</body>
+</html>
