@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gabrielnov2806-cpu.github.io/casa-fator-site/sitemap.xml
+Sitemap: https://casafator.com.br/sitemap.xml

@@ -452,3 +452,23 @@ figure { margin: 0; }
   .selo-giro { animation: none; }
   .topo { transition: none; }
 }
+
+/* Transição suave ao trocar de página, nos navegadores que oferecem o recurso */
+@view-transition { navigation: auto; }
+
+@keyframes pagina-sai { to { opacity: 0; } }
+
+@keyframes pagina-entra {
+  from { opacity: 0; transform: translateY(.75rem); }
+}
+
+::view-transition-old(root) { animation: pagina-sai .22s ease both; }
+
+::view-transition-new(root) { animation: pagina-entra .42s cubic-bezier(.2, .7, .2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: none; }
+}

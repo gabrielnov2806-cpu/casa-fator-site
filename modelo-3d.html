@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modelo 3D de cozinha e sala planejadas | Casa Fator</title>
+  <meta name="description" content="Explore em 3D uma cozinha e uma sala ilustrativas da Casa Fator: veja material, cor e ferragens de cada móvel e abra armários e gavetas.">
+  <link rel="canonical" href="https://casafator.com.br/modelo-3d.html">
+  <meta property="og:title" content="Modelo 3D de cozinha e sala planejadas | Casa Fator">
+  <meta property="og:description" content="Clique em cada módulo, veja os detalhes e abra armários e gavetas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://casafator.com.br/modelo-3d.html">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/cozinha-3d.css">
+</head>
+<body class="coz-pagina">
+  <header class="coz-topo">
+    <a class="coz-marca" href="index.html" aria-label="Casa Fator, início"><img src="img/logo.svg" alt="" width="478" height="59"></a>
+    <h1>Modelo 3D</h1>
+    <a class="coz-voltar" href="index.html">Voltar ao site</a>
+  </header>
+  <main id="coz-raiz">
+    <noscript><p class="coz-sem-3d">Para explorar o modelo 3D, ative o JavaScript do navegador.</p></noscript>
+  </main>
+  <script src="js/vendor/three.min.js"></script>
+  <script src="js/vendor/OrbitControls.js"></script>
+  <script src="js/cozinha-dados.js"></script>
+  <script src="js/cozinha-3d.js"></script>
+  <script>window.cozinha = window.iniciarCozinha3D(document.getElementById("coz-raiz"), { busca: location.search });</script>
+</body>
+</html>

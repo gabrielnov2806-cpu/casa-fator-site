@@ -1,0 +1,157 @@
+/* Cozinha 3D: modelo à esquerda, detalhes à direita */
+.coz-pagina { margin: 0; background: var(--preto); color: var(--branco); }
+
+.coz-topo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 3.75rem;
+  padding: .5rem var(--margem);
+  box-sizing: border-box;
+}
+
+.coz-marca { display: block; flex: none; width: 9.5rem; }
+
+.coz-marca img { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
+
+.coz-topo h1 { margin: 0; font-size: 1rem; font-weight: 300; }
+
+.coz-voltar { margin-left: auto; color: inherit; font-size: .9375rem; text-underline-offset: .25em; white-space: nowrap; }
+
+.coz {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 25rem);
+  height: calc(100vh - 3.75rem);
+  height: calc(100svh - 3.75rem);
+}
+
+.coz-area { position: relative; min-width: 0; min-height: 0; background: #0d0d0d; }
+
+.coz-area canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+
+.coz-area canvas:active { cursor: grabbing; }
+
+.coz-area canvas { transition: opacity .22s ease; }
+
+.coz-area canvas.coz-trocando { opacity: 0; }
+
+.coz-seletor {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  display: flex;
+  gap: .25rem;
+  padding: .25rem;
+  border-radius: .875rem;
+  background: rgba(0, 0, 0, .72);
+  transform: translateX(-50%);
+}
+
+.coz-seletor button {
+  min-width: 5.5rem;
+  min-height: 2.75rem;
+  padding: .25rem 1rem;
+  border: 0;
+  border-radius: .625rem;
+  background: transparent;
+  color: var(--branco);
+  font: inherit;
+  font-size: .9375rem;
+  cursor: pointer;
+}
+
+.coz-seletor button:hover { background: rgba(255, 255, 255, .16); }
+
+.coz-seletor button:focus-visible { outline: 3px solid var(--branco); outline-offset: 2px; }
+
+.coz-seletor button[aria-pressed="true"] { background: var(--branco); color: var(--preto); }
+
+.coz-tudo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: .625rem 1.125rem;
+  border-color: var(--branco);
+  background: rgba(0, 0, 0, .68);
+  color: var(--branco);
+  font-family: inherit;
+  font-size: .8125rem;
+  cursor: pointer;
+}
+
+.coz-tudo:hover { background: var(--branco); color: var(--preto); }
+
+.coz-abrir { display: block; width: 100%; margin: 0 0 .75rem; font-family: inherit; cursor: pointer; }
+
+.coz-dica {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  margin: 0;
+  padding: .375rem .875rem;
+  border-radius: .75rem;
+  background: rgba(0, 0, 0, .68);
+  color: var(--branco);
+  font-size: .8125rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.coz-sem-3d { margin: 0; padding: 2rem var(--margem); line-height: 1.5; }
+
+.coz-painel { overflow-y: auto; padding: 1.5rem; border-left: 1px solid var(--grafite); }
+
+.coz-detalhe h2 { margin: 0 0 .5rem; font-size: 1.625rem; line-height: 1.15; font-weight: 300; }
+
+.coz-detalhe p { margin: 0 0 .875rem; color: var(--cinza-claro); line-height: 1.45; }
+
+.coz-detalhe .coz-grupo { margin-bottom: .25rem; font-size: .8125rem; }
+
+.coz-detalhe dl { margin: 0; }
+
+.coz-detalhe dt { margin-top: .625rem; color: var(--cinza-claro); font-size: .8125rem; }
+
+.coz-detalhe dd { margin: 0; line-height: 1.35; font-weight: 500; }
+
+.coz-pedir { display: block; margin: 1.25rem 0 1.5rem; }
+
+.coz-lista h3 { margin: 1.25rem 0 .5rem; font-size: .875rem; font-weight: 700; }
+
+.coz-botoes { display: flex; flex-wrap: wrap; gap: .375rem; }
+
+.coz-botoes button {
+  min-height: 2.75rem;
+  padding: .375rem .75rem;
+  border: 1px solid var(--grafite);
+  border-radius: .75rem;
+  background: #141414;
+  color: var(--branco);
+  font: inherit;
+  font-size: .875rem;
+  cursor: pointer;
+}
+
+.coz-botoes button:hover { border-color: var(--branco); }
+
+.coz-botoes button:focus-visible { outline: 3px solid var(--branco); outline-offset: 2px; }
+
+.coz-botoes button[aria-pressed="true"] { border-color: var(--branco); background: var(--branco); color: var(--preto); }
+
+.coz-aviso { margin: 1.5rem 0 0; color: var(--cinza-claro); font-size: .8125rem; line-height: 1.45; }
+
+@media (max-width: 62rem) {
+  .coz { display: block; height: auto; }
+
+  .coz-area { height: 58svh; }
+
+  .coz-painel { overflow: visible; border-left: 0; border-top: 1px solid var(--grafite); padding: 1.25rem var(--margem) 2rem; }
+
+  .coz-area canvas { touch-action: pan-y; }
+
+  .coz-dica { font-size: .75rem; white-space: normal; width: 90%; text-align: center; }
+
+  .coz-tudo { top: auto; left: 50%; bottom: 3.75rem; transform: translateX(-50%); white-space: nowrap; }
+
+  .coz-topo h1 { display: none; }
+}

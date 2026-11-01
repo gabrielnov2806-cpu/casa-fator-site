@@ -406,8 +406,58 @@
   .funil-galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+/* Troca de etapa: a foto surge do preto, e o conteúdo sobe um pouco, em sequência */
+@keyframes funil-entra {
+  from { opacity: 0; transform: translateY(.875rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes funil-foto-entra {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: none; }
+}
+
+.funil-foto { animation: funil-foto-entra .7s cubic-bezier(.2, .7, .2, 1) both; }
+
+.funil-frase,
+.funil-progresso,
+.funil-barra,
+[data-etapa],
+[data-tela],
+.funil-conversar,
+.funil-resumo,
+.funil-bloco,
+.funil-galeria { animation: funil-entra .45s cubic-bezier(.2, .7, .2, 1) both; }
+
+.funil-frase { animation-delay: .12s; }
+
+[data-etapa],
+[data-tela] { animation-delay: .05s; }
+
+.funil-conversar,
+.funil-resumo,
+.funil-bloco,
+.funil-galeria { animation-delay: .14s; }
+
+.funil-painel > * { animation: funil-entra .35s cubic-bezier(.2, .7, .2, 1) both; }
+
+.funil-barra span { transition: width .45s cubic-bezier(.2, .7, .2, 1); }
+
 @media (prefers-reduced-motion: reduce) {
-  .funil-opcao { transition: none; }
+  .funil-opcao,
+  .funil-barra span { transition: none; }
+
+  .funil-foto,
+  .funil-frase,
+  .funil-progresso,
+  .funil-barra,
+  [data-etapa],
+  [data-tela],
+  .funil-conversar,
+  .funil-resumo,
+  .funil-bloco,
+  .funil-galeria,
+  .funil-painel > * { animation: none; }
 }
 
 /* Política de privacidade */
