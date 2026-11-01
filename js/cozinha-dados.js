@@ -17,6 +17,7 @@ window.COZINHA_DADOS = (function () {
 
   return {
     aviso: "Modelo ilustrativo de um projeto Casa Fator. Cores, medidas e especificações variam conforme cada projeto.",
+    convite: "Este é um exemplo. Seu orçamento chega com o seu projeto em 3D, igual a este, para você ver cada detalhe antes de decidir.",
     comodos: [{ id: "cozinha", nome: "Cozinha" }, { id: "sala", nome: "Sala" }],
     modulos: [
       marcenaria({

@@ -9,6 +9,23 @@ new IntersectionObserver(
   { rootMargin: `-${topo.offsetHeight}px 0px 0px 0px` }
 ).observe(abertura);
 
+// Menu do celular: abre pelo botão e fecha ao escolher um link ou apertar Esc
+const botaoMenu = document.getElementById("topo-menu");
+
+function marcarMenu(aberto) {
+  topo.classList.toggle("topo-aberto", aberto);
+  botaoMenu.setAttribute("aria-expanded", String(aberto));
+  botaoMenu.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+}
+
+botaoMenu.addEventListener("click", () => marcarMenu(!topo.classList.contains("topo-aberto")));
+document.getElementById("topo-nav").addEventListener("click", (e) => {
+  if (e.target.closest("a")) marcarMenu(false);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") marcarMenu(false);
+});
+
 // Faixas: o grupo é duplicado para o movimento não ter emenda.
 // Sem JavaScript, ou com animação reduzida, viram faixas de rolagem manual.
 const faixas = document.querySelector(".faixas");

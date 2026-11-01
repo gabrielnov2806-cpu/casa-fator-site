@@ -81,6 +81,9 @@
 
 .coz-tudo:hover { background: var(--branco); color: var(--preto); }
 
+/* No computador, botão e instruções ficam soltos; no celular, empilhados */
+.coz-rodape { display: contents; }
+
 .coz-abrir { display: block; width: 100%; margin: 0 0 .75rem; font-family: inherit; cursor: pointer; }
 
 .coz-dica {
@@ -114,7 +117,9 @@
 
 .coz-detalhe dd { margin: 0; line-height: 1.35; font-weight: 500; }
 
-.coz-pedir { display: block; margin: 1.25rem 0 1.5rem; }
+.coz-convite { margin: 1.25rem 0 0; padding-top: 1rem; border-top: 1px solid var(--grafite); line-height: 1.4; font-weight: 500; }
+
+.coz-pedir { display: block; margin: 1rem 0 1.5rem; }
 
 .coz-lista h3 { margin: 1.25rem 0 .5rem; font-size: .875rem; font-weight: 700; }
 
@@ -140,18 +145,36 @@
 
 .coz-aviso { margin: 1.5rem 0 0; color: var(--cinza-claro); font-size: .8125rem; line-height: 1.45; }
 
+/* Sem largura para o botão ao lado do seletor: botão e instruções empilhados,
+   com espaço fixo, mesmo se o texto ocupar mais linhas */
+@media (max-width: 72rem) {
+  .coz-rodape {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: .75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .875rem;
+    pointer-events: none;
+  }
+
+  .coz-dica { position: static; max-width: 90%; white-space: normal; text-align: center; transform: none; }
+
+  .coz-tudo { position: static; white-space: nowrap; pointer-events: auto; }
+}
+
 @media (max-width: 62rem) {
   .coz { display: block; height: auto; }
 
-  .coz-area { height: 58svh; }
+  .coz-area { height: 58vh; height: 58svh; }
 
   .coz-painel { overflow: visible; border-left: 0; border-top: 1px solid var(--grafite); padding: 1.25rem var(--margem) 2rem; }
 
   .coz-area canvas { touch-action: pan-y; }
 
-  .coz-dica { font-size: .75rem; white-space: normal; width: 90%; text-align: center; }
-
-  .coz-tudo { top: auto; left: 50%; bottom: 3.75rem; transform: translateX(-50%); white-space: nowrap; }
+  .coz-dica { font-size: .75rem; }
 
   .coz-topo h1 { display: none; }
 }

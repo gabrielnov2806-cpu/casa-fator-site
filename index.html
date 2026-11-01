@@ -58,7 +58,7 @@
     <a class="topo-logo" href="#inicio" aria-label="Casa Fator, início">
       <svg viewBox="0 0 478 59" aria-hidden="true"><use href="#marca"></use></svg>
     </a>
-    <nav class="topo-nav" aria-label="Principal">
+    <nav class="topo-nav" id="topo-nav" aria-label="Principal">
       <a href="#servicos">Serviços</a>
       <a href="#projetos">Projetos</a>
       <a href="#processo">Processo</a>
@@ -67,6 +67,9 @@
       <a href="#contato">Contato</a>
     </nav>
     <a class="topo-orcamento" href="orcamento.html">Pedir orçamento</a>
+    <button class="topo-menu" id="topo-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="topo-nav">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </header>
 
   <main id="conteudo">
@@ -193,6 +196,20 @@
       <a class="botao botao-preto projetos-link" href="https://www.instagram.com/casafator/">Ver mais no Instagram</a>
     </section>
 
+    <section class="seu-3d" id="seu-3d" aria-labelledby="seu-3d-titulo">
+      <div class="seu-3d-texto">
+        <h2 class="titulo-grande" id="seu-3d-titulo">
+          <span class="pesado">Veja seu projeto</span>
+          <span class="leve">em 3D antes de decidir</span>
+        </h2>
+        <p>Seu orçamento chega com o seu projeto em 3D. Gire, abra as portas e veja cada detalhe, no celular ou no computador.</p>
+        <a class="botao botao-branco" href="modelo-3d.html">Explorar um exemplo</a>
+      </div>
+      <figure class="seu-3d-foto">
+        <img src="img/modelo-3d-aberto.jpg" width="2000" height="1250" alt="Exemplo em 3D de uma cozinha planejada, com portas de armários abertas" loading="lazy" decoding="sync">
+      </figure>
+    </section>
+
     <section class="processo" id="processo" aria-labelledby="processo-titulo">
       <h2 class="titulo-secao" id="processo-titulo">Como trabalhamos</h2>
       <ol class="processo-etapas">
@@ -202,7 +219,7 @@
         </li>
         <li>
           <h3>Projeto</h3>
-          <p>Cada centímetro é pensado, considerando proporções, ergonomia, circulação e necessidades de uso.</p>
+          <p>Cada centímetro é pensado, considerando proporções, ergonomia, circulação e necessidades de uso. Você recebe os valores com o projeto em 3D.</p>
         </li>
         <li>
           <h3>Materiais</h3>

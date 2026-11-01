@@ -1113,6 +1113,7 @@
       area,
       h("aside", { class: "coz-painel" },
         detalhe,
+        h("p", { class: "coz-convite" }, dados.convite),
         pedir,
         lista,
         h("p", { class: "coz-aviso" }, dados.aviso))));
@@ -1132,7 +1133,7 @@
         onclick: () => { visor.alternarTudo(); atualizarBotaoTudo(); if (atual) escolher(atual); },
       }, "");
       atualizarBotaoTudo();
-      area.append(botaoTudo, h("p", { class: "coz-dica" }, "Arraste para girar · Clique em um móvel · Clique de novo para abrir"));
+      area.append(h("div", { class: "coz-rodape" }, botaoTudo, h("p", { class: "coz-dica" }, "Arraste para girar · Clique em um móvel · Clique de novo para abrir")));
     } else {
       area.append(h("p", { class: "coz-sem-3d", "data-sem-3d": "" }, "Seu navegador não conseguiu abrir o modelo em 3D, mas todos os detalhes estão na lista de módulos."));
     }

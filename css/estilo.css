@@ -89,6 +89,21 @@ figure { margin: 0; }
 
 .topo-orcamento:hover { background: var(--branco); color: var(--preto); }
 
+/* Botão do menu: só aparece no celular */
+.topo-menu {
+  display: none;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: .5rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.topo-menu svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
 /* Abertura em tela cheia */
 .abertura {
   position: relative;
@@ -351,6 +366,25 @@ figure { margin: 0; }
 
 .projetos-link { margin: clamp(2rem, 4vw, 3rem) var(--margem) 0; }
 
+/* Seu projeto em 3D */
+.seu-3d {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: clamp(4rem, 8vw, 7.5rem) var(--margem);
+  background: var(--preto);
+  color: var(--branco);
+}
+
+.seu-3d .titulo-grande { font-size: clamp(2.5rem, 4.6vw, 4.75rem); }
+
+.seu-3d-texto p { margin: 1.5rem 0 2rem; font-size: clamp(1.125rem, 1.6vw, 1.5rem); line-height: 1.4; }
+
+.seu-3d-foto img { width: 100%; height: auto; border-radius: .75rem; }
+
 /* Processo */
 .processo {
   position: relative;
@@ -428,20 +462,41 @@ figure { margin: 0; }
 /* Larguras menores */
 @media (max-width: 62rem) {
   .abertura-conteudo { grid-template-columns: minmax(0, 1fr); }
+  .seu-3d { grid-template-columns: minmax(0, 1fr); }
   .processo-etapas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ambiente { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); align-items: stretch; gap: 1.25rem; padding-top: 1.75rem; padding-bottom: 1.25rem; }
 }
 
 @media (max-width: 44rem) {
   :root { --topo: 4rem; }
-  .topo { gap: 1rem; }
+  .topo { gap: .75rem; }
+  .topo-logo { width: 7rem; }
+  .topo-menu { display: block; }
   .topo-nav { display: none; }
+  .topo-aberto { background: var(--preto); }
+  .topo-aberto .topo-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 var(--margem) 1rem;
+    background: var(--preto);
+  }
+  .topo-aberto .topo-nav a { padding: .75rem 0; border-top: 1px solid var(--grafite); font-size: 1.0625rem; }
   .selo { top: calc(var(--topo) + 2.5rem); right: 1rem; width: 6rem; }
   .selo-giro { font-size: 11px; }
   .ambiente-texto p { margin-bottom: 1rem; }
   .ambiente-texto .botao { padding: .75rem 1rem; }
   .processo-etapas { grid-template-columns: 1fr; }
   .processo-etapas li::before { margin-bottom: .75rem; }
+}
+
+/* Telas muito estreitas: o pedido de orçamento continua na abertura */
+@media (max-width: 22rem) {
+  .topo-orcamento { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
