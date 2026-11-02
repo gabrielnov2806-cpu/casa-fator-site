@@ -37,7 +37,7 @@ window.FUNIL_CONTEUDO = (function () {
     comoFunciona: [
       { titulo: "Você conta sobre o projeto", texto: "Responde às perguntas e envia a planta, se tiver." },
       { titulo: "O projetista analisa", texto: "Suas respostas e a planta são a base do orçamento." },
-      { titulo: "O orçamento chega com o 3D dos ambientes escolhidos", texto: "Por e-mail, em 3 a 5 dias úteis." },
+      { titulo: "O orçamento chega com o 3D dos ambientes escolhidos", texto: "Por e-mail, em 3 a 5 dias úteis, para até 2 ambientes, ou em 7 a 10 dias úteis, podendo ser menos, para 3 ou mais." },
     ],
     galeria: [
       { foto: foto("cozinha2"), legenda: "Cozinha" },
@@ -49,7 +49,7 @@ window.FUNIL_CONTEUDO = (function () {
       planta: [
         "O projetista analisa suas respostas e a planta.",
         "Preparamos o orçamento e o 3D dos ambientes que você escolheu.",
-        "Você recebe tudo no seu e-mail em 3 a 5 dias úteis.",
+        "Você recebe tudo no seu e-mail {prazo}.",
       ],
       visita: [
         "Chamamos você no WhatsApp para combinar o dia da visita.",

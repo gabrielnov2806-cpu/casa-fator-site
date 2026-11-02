@@ -40,6 +40,13 @@ window.FunilLogica = (function () {
     return [...ids.filter((atual) => atual !== "todos"), id];
   }
 
+  // Até 2 ambientes, 3 a 5 dias úteis. A partir de 3, ou "todos", o prazo é maior.
+  function prazoOrcamento(ids) {
+    return ids.includes("todos") || ids.length > 2
+      ? "em 7 a 10 dias úteis, podendo ser menos"
+      : "em 3 a 5 dias úteis";
+  }
+
   function ambienteDaUrl(busca) {
     const id = new URLSearchParams(busca).get("ambiente");
     return porId(id) ? id : null;
@@ -81,6 +88,7 @@ window.FunilLogica = (function () {
   return {
     AMBIENTES,
     calcularFaixas,
+    prazoOrcamento,
     alternarAmbiente,
     ambienteDaUrl,
     normalizarWhatsapp,

@@ -168,8 +168,8 @@ window.iniciarFunil = function (raiz, opcoes) {
     {
       id: "email",
       titulo: "Para qual e-mail enviamos o orçamento?",
-      frase: "Resposta em 3 a 5 dias úteis",
-      ajuda: "O orçamento chega neste e-mail em 3 a 5 dias úteis.",
+      frase: "Resposta em até 10 dias úteis",
+      ajuda: "O orçamento chega neste e-mail em 3 a 5 dias úteis, para até 2 ambientes, ou em 7 a 10 dias úteis, podendo ser menos, para 3 ou mais.",
       foto: "gen-closet-iluminado.jpg",
       campos: () => [campoTexto("email", "E-mail", "email", "email")],
       validar: () => (L.emailValido(respostas.email) ? null : "Informe um e-mail válido, como nome@exemplo.com."),
@@ -453,14 +453,14 @@ window.iniciarFunil = function (raiz, opcoes) {
 
   function desenharFinal(plantaPendente) {
     const titulo = h("h1", { "data-titulo": "", tabindex: "-1" }, respostas.caminho === "planta"
-      ? "Recebemos seu pedido. O orçamento chega no seu e-mail em 3 a 5 dias úteis."
+      ? `Recebemos seu pedido. O orçamento chega no seu e-mail ${L.prazoOrcamento(respostas.ambientes)}.`
       : "Recebemos seu pedido. Vamos chamar você no WhatsApp para combinar a visita.");
     mostrar("gen-cozinha-nogueira.jpg", "Obrigado", [h("div", { "data-tela": "final" },
       titulo,
       ...(plantaPendente ? [h("p", { class: "funil-aviso" }, "A planta não chegou com o pedido. Nossa equipe vai pedir a planta pelo WhatsApp.")] : []),
       h("section", { class: "funil-bloco" },
         h("h2", {}, "O que acontece agora"),
-        h("ol", { class: "funil-passos", "data-proximos": "" }, ...C.proximos[respostas.caminho].map((texto) => h("li", {}, h("span", {}, texto))))),
+        h("ol", { class: "funil-passos", "data-proximos": "" }, ...C.proximos[respostas.caminho].map((texto) => h("li", {}, h("span", {}, texto.replace("{prazo}", L.prazoOrcamento(respostas.ambientes))))))),
       ...resumoEl(null),
       galeriaEl(),
       h("div", { class: "funil-acoes funil-acoes-falha" },
