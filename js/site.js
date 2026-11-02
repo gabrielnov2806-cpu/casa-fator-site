@@ -9,6 +9,26 @@ new IntersectionObserver(
   { rootMargin: `-${topo.offsetHeight}px 0px 0px 0px` }
 ).observe(abertura);
 
+// Paralaxe: a imagem da abertura desce devagar na rolagem, enquanto a abertura está na tela.
+// Como ela só desce, e a abertura corta o excesso, nunca aparece um vão.
+if (!semAnimacao) {
+  const FATOR_PARALAXE = 0.35;
+  const imagemAbertura = abertura.querySelector(".abertura-img");
+  let quadroParalaxe = null;
+
+  function aplicarParalaxe() {
+    quadroParalaxe = null;
+    const rolado = Math.max(scrollY, 0);
+    if (rolado > abertura.offsetHeight) return;
+    imagemAbertura.style.setProperty("--paralaxe", `${(rolado * FATOR_PARALAXE).toFixed(1)}px`);
+  }
+
+  addEventListener("scroll", () => {
+    if (quadroParalaxe === null) quadroParalaxe = requestAnimationFrame(aplicarParalaxe);
+  }, { passive: true });
+  aplicarParalaxe();
+}
+
 // Menu do celular: abre pelo botão e fecha ao escolher um link ou apertar Esc
 const botaoMenu = document.getElementById("topo-menu");
 
